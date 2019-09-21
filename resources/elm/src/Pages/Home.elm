@@ -1,12 +1,13 @@
 module Pages.Home exposing (..)
 
-import Pages exposing (Msg)
-import Html exposing (Html, text, div, a)
+import Html exposing (Html, a, div, text)
 import Html.Attributes exposing (href)
+import Pages exposing (Msg)
+
 
 view : Html Msg
 view =
-  div []
-    [ text "Hello, world"
-    , a [ href "/greet/seb" ] [ text "Greet" ]
-    ]
+    div []
+        [ text "Hello, world"
+        , a [ href "/greet/seb" ] [ text "Greet" ]
+        ]

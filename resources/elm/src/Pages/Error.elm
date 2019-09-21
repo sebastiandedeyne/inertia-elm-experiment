@@ -1,8 +1,9 @@
 module Pages.Error exposing (..)
 
-import Pages exposing (Msg, ErrorProps)
 import Html exposing (Html, text)
+import Pages exposing (ErrorProps, Msg)
 import String exposing (append)
+
 
 view : ErrorProps -> Html Msg
 view props =
