@@ -1,7 +1,7 @@
 port module Inertia exposing (..)
 
 import Browser exposing (element)
-import Html
+import Html exposing (Html, a, text)
 import Html.Attributes
 import Html.Events
 import Json.Decode exposing (Decoder, Value, decodeString, field, map2, string, value)
@@ -83,3 +83,21 @@ pageDecoder =
     map2 Model
         (field "component" string)
         (field "props" value)
+
+
+
+-- COMPONENTS
+
+
+link : String -> List (Html Msg) -> Html Msg
+link href innerHtml =
+    a
+        [ Html.Attributes.href href
+        , Html.Events.custom "click" (preventDefault (Visit href))
+        ]
+        innerHtml
+
+
+preventDefault : msg -> Decoder { message : msg, stopPropagation : Bool, preventDefault : Bool }
+preventDefault message =
+    Json.Decode.succeed { message = message, preventDefault = True, stopPropagation = False }

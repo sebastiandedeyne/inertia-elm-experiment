@@ -1,12 +1,12 @@
 module Pages.Error exposing (..)
 
 import Html exposing (Html, div, text)
-import Inertia exposing (Msg)
-import Inertia.Link exposing (link)
+import Inertia exposing (Msg, link)
+import Json.Decode exposing (Value)
 
 
-view : Html Msg
-view =
+view : Value -> Html Msg
+view props =
     div []
         [ text "Something went wrong"
         , link "/" [ text "Back home" ]

@@ -1,8 +1,7 @@
 module Pages.Greet exposing (..)
 
 import Html exposing (Html, div, text)
-import Inertia exposing (Msg)
-import Inertia.Link exposing (link)
+import Inertia exposing (Msg, link)
 import Json.Decode exposing (Decoder, Value, decodeValue, field, map, string)
 import String exposing (append)
 
