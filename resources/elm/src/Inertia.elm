@@ -1,6 +1,7 @@
 port module Inertia exposing (..)
 
 import Browser exposing (element)
+import Dict exposing (Dict)
 import Html exposing (Html, a, text)
 import Html.Attributes
 import Html.Events
@@ -48,6 +49,18 @@ update msg model =
         SetPage component props ->
             ( { component = component, props = props }, Cmd.none )
 
+
+-- VIEW
+
+
+view : Dict String (Value -> Html Msg) -> Html Msg -> Model -> Html Msg
+view pages errorPage model =
+    case Dict.get model.component pages of
+        Just renderer ->
+            renderer model.props
+
+        Nothing ->
+            errorPage
 
 
 -- SUBSCRIPTIONS

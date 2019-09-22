@@ -2,8 +2,8 @@ module App exposing (..)
 
 import Browser exposing (element)
 import Dict exposing (Dict)
-import Html exposing (Html)
-import Inertia exposing (Model, Msg, init, subscriptions, update)
+import Html exposing (Html, text)
+import Inertia exposing (Model, Msg, init, subscriptions, update, view)
 import Json.Decode exposing (Value)
 import Pages.Error
 import Pages.Greet
@@ -18,21 +18,16 @@ pages =
         ]
 
 
-view : Model -> Html Msg
-view model =
-    case Dict.get model.component pages of
-        Just renderer ->
-            renderer model.props
-
-        Nothing ->
-            Pages.Error.view model.props
+errorView : Html Msg
+errorView =
+    text "Oopsie!"
 
 
 main : Program String Model Msg
 main =
     element
         { init = init
-        , view = view
+        , view = view pages errorView
         , update = update
         , subscriptions = subscriptions
         }
