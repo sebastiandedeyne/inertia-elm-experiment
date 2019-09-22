@@ -49,6 +49,7 @@ update msg model =
             ( { component = component, props = props }, Cmd.none )
 
 
+
 -- SUBSCRIPTIONS
 
 
@@ -71,6 +72,7 @@ port visit : String -> Cmd msg
 
 
 port setPage : (String -> msg) -> Sub msg
+
 
 
 -- DECODERS

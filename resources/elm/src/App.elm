@@ -2,7 +2,7 @@ module App exposing (..)
 
 import Browser exposing (element)
 import Html exposing (Html)
-import Inertia exposing (Model, Msg, init, update, subscriptions)
+import Inertia exposing (Model, Msg, init, subscriptions, update)
 import Pages.Error
 import Pages.Greet
 import Pages.Home
